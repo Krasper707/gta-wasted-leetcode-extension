@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "LeetCode Wasted Screen",
+  "version": "1.0",
+  "description": "Shows the GTA 'Wasted' screen when your LeetCode submission fails.",
+  "permissions": [],
+  "host_permissions": ["https://leetcode.com/problems/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/wasted.mp3"],
+      "matches": ["https://leetcode.com/*"]
+    }
+  ]
+}

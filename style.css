@@ -1,0 +1,50 @@
+/* This class will be added to the body to trigger the slow-motion grayscale effect */
+.wasted-effect-active {
+  filter: grayscale(100%) brightness(0.6);
+  transition: filter 1s ease-in;
+}
+
+/* This is the container that holds our text right in the middle of the screen */
+#wasted-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;      /* Ensure it's on top of all LeetCode UI */
+  pointer-events: none;/* Allows you to click "through" the overlay */
+}
+
+/* The 'WASTED' text itself, styled to look like the game */
+#wasted-text {
+  /* Using common system fonts to get the bold, condensed look */
+  font-family: Impact, "Arial Black", sans-serif; 
+  font-weight: normal; /* Impact is already bold, so normal is fine */
+  font-size: 15vw; /* Scales with the width of the browser window */
+  color: white;
+  text-transform: uppercase;
+
+  /* This is the magic: multiple shadows create a thick black outline */
+  text-shadow: 
+    -4px -4px 0 #000,  
+     4px -4px 0 #000,
+    -4px  4px 0 #000,
+     4px  4px 0 #000;
+  
+  /* A simple animation to make it pop in dramatically */
+  animation: wasted-pop-in 1.5s ease-out;
+}
+
+@keyframes wasted-pop-in {
+  from { 
+    opacity: 0; 
+    transform: scale(1.8);
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+}   
